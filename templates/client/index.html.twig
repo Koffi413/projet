@@ -9,7 +9,11 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ client.getPrenom()}} {{''}} {{client.getNom()}}! ✅</h1>
-    <p>vous vivez à : {{client.getAdresse()}}</p>
+    <p>Nom:{{' '}}{{client.getNom()|upper}}</p>
+    <p>Prénom:{{' '}}{{client.getPrenom()|upper}}</p>
+    <p>Email:{{' '}}{{client.getEmail()}}</p>
+    <p>Adresse:{{' '}}{{client.getAdresse()}}</p>
+    <p>Numéro:{{' '}}{{client.getNumero()}}</p>
+    <p>Compte Crée le :{{' '}}{{client.getCréerLe()|format_datetime('full', 'medium', locale='fr')}}</p>
 </div>
 {% endblock %}

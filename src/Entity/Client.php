@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ClientRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\UX\Turbo\Attribute\Broadcast;
 
@@ -25,10 +26,16 @@ class Client
     private ?string $adresse = null;
 
     #[ORM\Column]
-    private ?int $numero = null;
+    private ?string $numero = null;
 
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $créer_le = null;
+    public function __construct() {
+        $this->créer_le = new \DateTime();  
+    }
 
     public function getId(): ?int
     {
@@ -71,12 +78,12 @@ class Client
         return $this;
     }
 
-    public function getNumero(): ?int
+    public function getNumero(): ?string
     {
         return $this->numero;
     }
 
-    public function setNumero(int $numero): static
+    public function setNumero(string $numero): static
     {
         $this->numero = $numero;
 
@@ -91,6 +98,18 @@ class Client
     public function setPrenom(string $prenom): static
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getCréerLe(): ?\DateTimeInterface
+    {
+        return $this->créer_le;
+    }
+
+    public function setCréerLe(\DateTimeInterface $créer_le): static
+    {
+        $this->créer_le = $créer_le;
 
         return $this;
     }
