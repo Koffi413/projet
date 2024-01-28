@@ -27,6 +27,9 @@ class Client
     #[ORM\Column]
     private ?int $numero = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $prenom = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +79,18 @@ class Client
     public function setNumero(int $numero): static
     {
         $this->numero = $numero;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): static
+    {
+        $this->prenom = $prenom;
 
         return $this;
     }
