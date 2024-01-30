@@ -2,12 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ClientRepository;
-use Doctrine\DBAL\Types\Types;
+use App\Repository\ProprietaireRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ClientRepository::class)]
-class Client
+#[ORM\Entity(repositoryClass: ProprietaireRepository::class)]
+class Proprietaire
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,16 +20,13 @@ class Client
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $tel = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $email = null;
 
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $cree_le = null;
+    #[ORM\Column(length: 255)]
+    private ?string $password = null;
 
     public function getId(): ?int
     {
@@ -61,18 +57,6 @@ class Client
         return $this;
     }
 
-    public function getTel(): ?string
-    {
-        return $this->tel;
-    }
-
-    public function setTel(string $tel): static
-    {
-        $this->tel = $tel;
-
-        return $this;
-    }
-
     public function getEmail(): ?string
     {
         return $this->email;
@@ -97,14 +81,14 @@ class Client
         return $this;
     }
 
-    public function getCreeLe(): ?\DateTimeInterface
+    public function getPassword(): ?string
     {
-        return $this->cree_le;
+        return $this->password;
     }
 
-    public function setCreeLe(\DateTimeInterface $cree_le): static
+    public function setPassword(string $password): static
     {
-        $this->cree_le = $cree_le;
+        $this->password = $password;
 
         return $this;
     }
