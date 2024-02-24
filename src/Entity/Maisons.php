@@ -26,10 +26,16 @@ class Maisons
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?bool $disponiblite = null;
+    private ?bool $disponibilite = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Categorie = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $lien = null;
 
     public function getId(): ?int
     {
@@ -84,14 +90,14 @@ class Maisons
         return $this;
     }
 
-    public function isDisponiblite(): ?bool
+    public function isDisponibilite(): ?bool
     {
-        return $this->disponiblite;
+        return $this->disponibilite;
     }
 
-    public function setDisponiblite(bool $disponiblite): static
+    public function setDisponiblite(bool $disponibilite): static
     {
-        $this->disponiblite = $disponiblite;
+        $this->disponibilite = $disponibilite;
 
         return $this;
     }
@@ -104,6 +110,30 @@ class Maisons
     public function setCategorie(string $Categorie): static
     {
         $this->Categorie = $Categorie;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getLien(): ?string
+    {
+        return $this->lien;
+    }
+
+    public function setLien(?string $lien): static
+    {
+        $this->lien = $lien;
 
         return $this;
     }

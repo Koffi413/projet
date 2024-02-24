@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MaisonsController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+     <div class="row">
+        {% for home in maisons %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ home.name }}</h5>
+                        <p class="card-text">{{ home.description }}</p>
+                        <p class="card-text">{{ home.prix }}</p>
+                        <p class="card-text">{{ home.adresse }}</p>
+                        <p class="card-text">{{ home.Categorie }}</p>
+                        <p class="card-text">{{ home.disponibilite }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

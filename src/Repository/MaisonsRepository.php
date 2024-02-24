@@ -21,20 +21,20 @@ class MaisonsRepository extends ServiceEntityRepository
         parent::__construct($registry, Maisons::class);
     }
 
-//    /**
-//     * @return Maisons[] Returns an array of Maisons objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('m.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Maisons[] Returns an array of Maisons objects
+     */
+    public function findByDisponibilite($value): array
+    {
+        return $this->createQueryBuilder('m')
+            ->Where('m.disponibilite = :val')
+            ->setParameter('val', $value)
+            ->orderBy('m.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+   }
 
 //    public function findOneBySomeField($value): ?Maisons
 //    {
