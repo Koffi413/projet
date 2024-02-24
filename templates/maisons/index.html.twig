@@ -3,10 +3,7 @@
 {% block title %}Hello MaisonsController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<link rel="stylesheet" href="{{ asset('styles/style.css') }}">
 
 <div class="example-wrapper">
      <div class="row">
@@ -20,6 +17,7 @@
                         <p class="card-text">{{ home.adresse }}</p>
                         <p class="card-text">{{ home.Categorie }}</p>
                         <p class="card-text">{{ home.disponibilite }}</p>
+                        <p class="card-text"><a href= "{{ home.lien }}">Faire Une Visite </a></p>
                     </div>
                 </div>
             </div>

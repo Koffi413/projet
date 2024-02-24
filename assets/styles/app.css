@@ -1,3 +1,19 @@
-body {
-    background-color: skyblue;
+.card {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.img{
+    size: 10px;
 }
