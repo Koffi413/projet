@@ -28,6 +28,9 @@ class Maisons
     #[ORM\Column]
     private ?bool $disponiblite = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Categorie = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Maisons
     public function setDisponiblite(bool $disponiblite): static
     {
         $this->disponiblite = $disponiblite;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->Categorie;
+    }
+
+    public function setCategorie(string $Categorie): static
+    {
+        $this->Categorie = $Categorie;
 
         return $this;
     }
