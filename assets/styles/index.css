@@ -1,0 +1,394 @@
+body {
+    margin: auto 0;
+    background-color: rgba(220, 220, 220, 0.275);
+}
+
+li {
+    list-style-type: none;
+    margin: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    letter-spacing: 0.8px;
+}
+
+ul {
+    display: flex;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fin-navigation {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-right: 20px;
+}
+
+.para {
+    color: white;
+    position: absolute;
+    font-size: 65px;
+    margin-top: 110px;
+    margin-left: 430px;
+    font-family: homescary;
+
+}
+
+.fin-navigation img {
+    margin-top: 3px;
+}
+
+.fin-navigation p {
+    font-size: 13px;
+    color: #0000E5;
+    border-bottom: 0.2px solid #0000E5;
+    height: 17px;
+
+
+}
+
+header {
+
+    background-color: #210A00;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 1280px;
+    height: 550px;
+}
+
+.barre-de-navigation {
+    display: flex;
+}
+
+.espace-image img {
+    width: 1100px;
+    height: 600px;
+    margin-left: 90px;
+
+
+}
+
+
+.text p {
+    position: absolute;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.image-can {
+    position: absolute;
+    margin-top: -200px;
+
+
+}
+
+.coupe img {
+    width: 520px;
+    height: 300px;
+    transform: translate(500px, -500px);
+
+}
+
+.logo {
+    display: flex;
+}
+
+.logo1 {
+    transform: translateY(10px);
+}
+
+.logo2 {
+    transform: translateY(15px);
+}
+
+.image-can img {
+    height: 300px;
+    width: 900px;
+    margin-left: 300px;
+}
+
+.image-container {
+    display: flex;
+    height: 200px;
+    margin-top: 225px;
+    transform: translateY(60px);
+
+
+
+
+}
+
+.image-box {
+    width: 20%;
+    /* Ajustez la largeur des carrés */
+    margin-left: 10px;
+    /* Marge entre les carrés */
+    overflow: hidden;
+    perspective: 1000px;
+    /* Profondeur de la perspective pour les transformations 3D */
+    height: 110px;
+    background-color: #210A00;
+    border-radius: 20px;
+
+
+}
+
+.image-box .content {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+
+
+}
+
+.image-box:hover .content {
+    transform: rotateY(180deg);
+}
+
+.image-box .side {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-box .front {
+    transform: rotateY(0deg);
+}
+
+.image-box .back {
+    transform: rotateY(180deg);
+}
+
+.image-box img {
+    width: 100%;
+    height: 300px;
+
+    /* Coins arrondis, facultatif */
+
+}
+
+.image-container p {
+    color: white;
+    font-family: montserrat;
+    font-size: 15px;
+    line-height: 25px;
+
+
+
+}
+
+.categories {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+}
+
+.information p {
+    color: white;
+    line-height: 40px;
+    justify-content: justify;
+    font-family: montserrat;
+    font-size: 18px;
+}
+
+.info {
+    display: flex;
+    margin-top: 100px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-top: 100px;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 4rem;
+    margin-bottom: 24rem;
+    color: white;
+}
+
+.left {
+    height: 100%;
+
+    grid-column: 1/5;
+    position: relative;
+    z-index: 200;
+}
+
+.right {
+    height: 100%;
+    grid-column: 5/13;
+    display: flex;
+    gap: 1rem;
+}
+
+.item {
+
+    background-position: center top;
+    background-size: auto 100%;
+    border-radius: .5rem;
+    flex-grow: 1;
+    transition: width 300ms ease;
+    width: 33%;
+    background-repeat: no-repeat;
+
+
+    &:hover {
+        width: 50%;
+        scale: 1.2;
+
+    }
+}
+
+
+.deuxi {
+    display: flex;
+}
+
+.trier-par {
+    background-color: white;
+    height: 600px;
+    width: 200px;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.produit {
+    background-color: white;
+    width: 230px;
+    height: 200px;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+
+
+
+
+.produit img {
+    width: 230px;
+    height: 200px;
+}
+
+.trie-par {
+    background-color: #210A00;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.trie-par p {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 0px;
+    transform: translateY(5px);
+    color: white;
+}
+
+.information-prix p {
+    color: white;
+    position: absolute;
+    margin-top: -24px;
+    margin-left: 130px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.description p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-top: 0px;
+    line-height: 20px;
+}
+
+button {
+    margin-left: 60px;
+    background-color: #C11111;
+    color: white;
+    border-color: #C11111;
+    height: 30px;
+    width: 100px;
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+.lieu {
+    color: #707070
+}
+
+.visite {
+    color: #C11111
+}
+
+.ligne-un {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 90px;
+}
+
+.categories p {
+    color: #210A00;
+}
+
+
+
+
+@media screen and (max-width:780px) {
+    li {
+        color: red;
+    }
+}
+
+.img-drapeau img {
+    height: 400px;
+    width: 500px;
+    margin-top: 60px;
+}
+
+.img-joueur img {
+    height: 200px;
+    width: 300px;
+    margin-top: 200px;
+    margin-left: -170px;
+    border-radius: 30px;
+
+}
+
+.image-drapeaux {
+    display: flex;
+}
+
+.texte p {
+    margin-top: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.titre p {
+    margin-top: 120px;
+    font-family: homescary;
+    font-size: 30px;
+
+}
+
+.ligne-deux {
+    display: flex;
+}
+
+label {
+    display: block;
+}

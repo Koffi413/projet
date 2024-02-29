@@ -1,0 +1,403 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AcceuilController!{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('styles/index.css') }}">
+
+ <header id="en-tete">
+        <div class="barre-de-navigation">
+            <div class="logo">
+                <div class="logo1">
+                    <img src=" {{ asset('images/logo.png') }}" width="60px">
+                </div>
+                <div class="logo2">
+                    <img src="{{ asset('images/caf.png') }}" width="40px">
+                </div>
+
+            </div>
+
+            <div class="onglet"></div>
+            <ul>
+                <a href="#en-tete">
+                    <li>Accueil</li>
+                </a>
+                <a href="#en-tete">
+                    <li>Categorie</li>
+                </a>
+                <a href="{{ path('app_actualite') }}">
+                    <li>Actualité</li>
+                </a>
+                <a href="{{ path('app_reservation') }}">
+                    <li>Reservation</li>
+                </a>
+                <a href="#section1">
+                    <li>Contact</li>
+                </a>
+            </ul>
+            <div class="fin-navigation">
+                <p> Se Connecter</p>
+
+            </div>
+        </div>
+        <div class="text1">
+            <div class="para">
+                <p>Akwaba... </p>
+            </div>
+
+        </div>
+
+        <div class="espace-image">
+            <div class="image-acceuil">
+                <img src="{{ asset('images/ABIDJAN_31-wasserz-scaled-transformed.jpeg') }}">
+            </div>
+            <div class="image-can">
+                <img src="{{ asset('images/Instagram-Cover-861-x-316px-scaled.jpeg') }}">
+            </div>
+            <div class="coupe">
+                <img src="{{ asset('images/CAN-2021-removebg-preview.png') }}">
+            </div>
+
+        </div>
+    </header>
+    <section id="section1">
+        <div class="image-container">
+            <div class="image-box">
+                <div class="content">
+                    <div class="side front">
+                        <p> MAISON HOTES </p>
+                    </div>
+                    <div class="side back">
+                        <img src="{{ asset('images/cozy restaurant design.jpeg') }}" alt="Image 1">
+                    </div>
+                </div>
+            </div>
+            <div class="image-box">
+                <div class="content">
+                    <div class="side front">
+                        <p>MAISON DUPLEX</p>
+                    </div>
+                    <div class="side back">
+                        <img src="{{ asset('images/decoree-avec-beaucoup.jpeg') }}" alt="Image 1">
+                    </div>
+                </div>
+            </div>
+            <div class="image-box">
+                <div class="content">
+                    <div class="side front">
+                        <p>HOTELS</p>
+                    </div>
+                    <div class="side back">
+                        <img src="{{ asset('images/Stanislas-Maison-DHotes-Abidjan-Exterior.jpeg') }}" alt="Image 1">
+                    </div>
+                </div>
+            </div>
+            <div class="image-box">
+                <div class="content">
+                    <div class="side front">
+                        <p>RESIDENCE</p>
+                    </div>
+                    <div class="side back">
+                        <img src="{{ asset('images/téléchargement (13).jpeg') }}" alt="Image 1">
+                    </div>
+                </div>
+            </div>
+            <div class="image-box">
+                <div class="content">
+                    <div class="side front">
+                        <p>AUTRES</p>
+                    </div>
+                    <div class="side back">
+                        <img src="{{ asset('images/belle-maison-archi-LCL.jpeg') }}" alt="Image 1">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+    <section id="article">
+        <div class="deuxi">
+            <div class="trier-par">
+                <div class="trie-par">
+                    <p>Trier par</p>
+                </div>
+                <div class="categories">
+                    <p>Categories:</p>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <p>Standing:</p>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <p>prix:</p>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+                    <label for="Checkbox">
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                    </label>
+
+
+
+                </div>
+            </div>
+            <div class="produits">
+                <div class="ligne-un">
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{ asset('images/produit1.jpeg') }}">
+                        </div>
+                        <div class="information-prix">
+                            <p>175000 XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>Résidence 2 pièces + piscine <br>
+                                <span class="lieu"> Riviera , Abatta<br></span>
+                                <a href="https://my.matterport.com/show/?m=cQkzgNR8osW"><span class="visite">Faire une
+                                        visite virtuelle<br></span></a>
+                        </div>
+                        <button>Reserver</button>
+                    </div>
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{ asset('images/produit2.jpeg') }}">
+                        </div>
+                        <div class="information-prix">
+                            <p>175000 XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>Résidence 2 pièces + piscine <br>
+                                <span class="lieu"> Riviera , Abatta<br></span>
+                                <span class="visite">Faire une visite virtuelle<br></span>
+                        </div>
+                        <button>Reserver</button>
+                    </div>
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{ asset('images/produit3.jpeg') }}">
+                        </div>
+                        <div class="information-prix">
+                            <p>175000 XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>Résidence 2 pièces + piscine <br>
+                                <span class="lieu"> Riviera , Abatta<br></span>
+                                <span class="visite">Faire une visite virtuelle<br></span>
+                        </div>
+                        <button>Reserver</button>
+                    </div>
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{ asset('images/produit4.jpeg') }}">
+                        </div>
+                        <div class="information-prix">
+                            <p>175000 XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>Résidence 2 pièces + piscine <br>
+                                <span class="lieu"> Riviera , Abatta<br></span>
+                                <span class="visite">Faire une visite virtuelle<br></span>
+                        </div>
+                        <button>Reserver</button>
+                    </div>
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{ asset('images/produit4.jpeg') }}">
+                        </div>
+                        <div class="information-prix">
+                            <p>175000 XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>Résidence 2 pièces + piscine <br>
+                                <span class="lieu"> Riviera , Abatta<br></span>
+                                <span class="visite">Faire une visite virtuelle<br></span>
+                        </div>
+                        <button>Reserver</button>
+                    </div>
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{ asset('images/produit4.jpeg') }}">
+                        </div>
+                        <div class="information-prix">
+                            <p>175000 XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>Résidence 2 pièces + piscine <br>
+                                <span class="lieu"> Riviera , Abatta<br></span>
+                                <span class="visite">Faire une visite virtuelle<br></span>
+                        </div>
+                        <button>Reserver</button>
+                    </div>
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{ asset('images/produit4.jpeg') }}">
+                        </div>
+                        <div class="information-prix">
+                            <p>175000 XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>Résidence 2 pièces + piscine <br>
+                                <span class="lieu"> Riviera , Abatta<br></span>
+                                <span class="visite">Faire une visite virtuelle<br></span>
+                        </div>
+                        <button>Reserver</button>
+                    </div>
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{ asset('images/produit4.jpeg') }}">
+                        </div>
+                        <div class="information-prix">
+                            <p>175000 XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>Résidence 2 pièces + piscine <br>
+                                <span class="lieu"> Riviera , Abatta<br></span>
+                                <span class="visite">Faire une visite virtuelle<br></span>
+                        </div>
+                        <button>Reserver</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+    </section>
+    <section id="information">
+        <div class="image-drapeaux">
+            <div class="img-drapeau">
+                <img src="{{ asset('images/rnd.png') }}">
+            </div>
+            <div class="img-joueur">
+                <img src="{{ asset('images/jad20231215-ass-can-cote-ivoire-2015 copie.png') }}">
+            </div>
+            <div class="texte">
+                <span class="titre">
+                    <p>A la decourverte de la can</p>
+                </span>
+                <p>La Coupe d’Afrique des nations (CAN) est une compétition
+                    de football qui oppose les meilleures sélections nationales
+                    masculines d’Afrique, organisée par la Confédération africaine
+                    de football (CAF) depuis 1957. Depuis 1968, elle a lieu tous
+                    Les deux ans, passant aux années impaires en 2013.
+
+                    La CAN est l’un des tournois de football les plus prestigieux
+                    au monde, et il est souvent considéré comme le championnat
+                    d’Afrique. La compétition est très populaire en Afrique, et elle
+                    attire des millions de téléspectateurs à travers le continent.
+
+                    La CAN est un tournoi passionnant et compétitif,
+                    et elle offre souvent des matchs spectaculaires.
+                    Les équipes africaines sont de plus en plus fortes
+                    , et elles sont capables de rivaliser avec les meilleures
+                    équipes du monde. </p>
+            </div>
+        </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="autre-section">
+        <div class="produits">
+            <div class="ligne-deux">
+                <div class="produit">
+                    <div class="image-produit">
+                        <img src="{{ asset('images/produit1.jpeg') }}">
+                    </div>
+                    <div class="information-prix">
+                        <p>175000 XOF</p>
+                    </div>
+                    <div class="description">
+                        <p>Résidence 2 pièces + piscine <br>
+                            <span class="lieu"> Riviera , Abatta<br></span>
+                            <a href="https://my.matterport.com/show/?m=cQkzgNR8osW"><span class="visite">Faire une
+                                    visite virtuelle<br></span></a>
+                    </div>
+                    <button>Reserver</button>
+                </div>
+                <div class="produit">
+                    <div class="image-produit">
+                        <img src="{{ asset('images/produit2.jpeg') }}">
+                    </div>
+                    <div class="information-prix">
+                        <p>175000 XOF</p>
+                    </div>
+                    <div class="description">
+                        <p>Résidence 2 pièces + piscine <br>
+                            <span class="lieu"> Riviera , Abatta<br></span>
+                            <span class="visite">Faire une visite virtuelle<br></span>
+                    </div>
+                    <button>Reserver</button>
+                </div>
+                <div class="produit">
+                    <div class="image-produit">
+                        <img src="{{ asset('images/produit3.jpeg') }}">
+                    </div>
+                    <div class="information-prix">
+                        <p>175000 XOF</p>
+                    </div>
+                    <div class="description">
+                        <p>Résidence 2 pièces + piscine <br>
+                            <span class="lieu"> Riviera , Abatta<br></span>
+                            <span class="visite">Faire une visite virtuelle<br></span>
+                    </div>
+                    <button>Reserver</button>
+                </div>
+                <div class="produit">
+                    <div class="image-produit">
+                        <img src="{{ asset('images/produit4.jpeg') }}">
+                    </div>
+                    <div class="information-prix">
+                        <p>175000 XOF</p>
+                    </div>
+                    <div class="description">
+                        <p>Résidence 2 pièces + piscine <br>
+                            <span class="lieu"> Riviera , Abatta<br></span>
+                            <span class="visite">Faire une visite virtuelle<br></span>
+                    </div>
+                    <button>Reserver</button>
+                </div>
+                <div class="produit">
+                    <div class="image-produit">
+                        <img src="{{ asset('images/produit4.jpeg') }}">
+                    </div>
+                    <div class="information-prix">
+                        <p>175000 XOF</p>
+                    </div>
+                    <div class="description">
+                        <p>Résidence 2 pièces + piscine <br>
+                            <span class="lieu"> Riviera , Abatta<br></span>
+                            <span class="visite">Faire une visite virtuelle<br></span>
+                    </div>
+                    <button>Reserver</button>
+                </div>
+    </section>
+
+{% endblock %}
