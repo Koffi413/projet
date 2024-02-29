@@ -37,6 +37,9 @@ class Maisons
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $lien = null;
 
+    #[ORM\ManyToOne(inversedBy: 'relation')]
+    private ?Reservation $reservation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +137,18 @@ class Maisons
     public function setLien(?string $lien): static
     {
         $this->lien = $lien;
+
+        return $this;
+    }
+
+    public function getReservation(): ?Reservation
+    {
+        return $this->reservation;
+    }
+
+    public function setReservation(?Reservation $reservation): static
+    {
+        $this->reservation = $reservation;
 
         return $this;
     }
