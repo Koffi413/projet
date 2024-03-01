@@ -181,7 +181,7 @@
                                 <a href="{{home.lien}}"><span class="visite">Faire une
                                         visite virtuelle<br></span></a>
                         </div>
-                        <button>Reserver</button>
+                        <a href="{{path('app_panier', {'id': home.id })}}"><button>Reserver</button></a>
                     </div>
                     {% endfor %}
                 </div>
