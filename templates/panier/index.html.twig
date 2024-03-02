@@ -25,31 +25,40 @@
                                     <div class="row">{{item.maisons.description}}</div>
                                 </div>
                                 <div class="col">
-                                    <a href="#">-</a><a href="#" class="border">{{item.quantité}}</a><a href="{{path('app_panier', {'id': item.maisons.id })}}">+</a>
+                                    <a href="{{path('panier_dimunuer', {'id': item.maisons.id,'quantité': item.quantité})}}">-</a><a href="#" class="border">{{item.quantité}}</a><a href="{{path('panier_achat', {'id': item.maisons.id })}}">+</a>
                                 </div>
-                                <div class="col"> {{item.maisons.prix}} XOF{{"  "}}<span class="close">&#10005;</span></div>
+                                <div class="col"> {{item.maisons.prix * item.quantité}} XOF<a href="{{path('panier_delete', {'id': item.maisons.id })}}" class="btn btn-danger btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                    </svg>
+                                </a></div>
+                                
                             </div>
                         </div>                
                 {% endfor %}
+                {% else %}
+                <p>Vous avez aucune reservations pour l'instant</p>
             {% endif %}
-                    <div class="back-to-shop"><a href="{{path('app_acceuil')}}" class="text-secondary">&leftarrow;Retour</a></div>
-                </div>
-                <div class="col-md-4 summary">
-                    <div><h5><b>Summary</b></h5></div>
-                    <hr>
-                    <div class="row">
-                        <div class="col" style="padding-left:0;">{{somme}}</div>
-                        <div class="col text-right">{{total}} XOF</div>
+
+            
+                        <a href="{{path('app_acceuil')}}" class="btn btn-primary">Retour</a>
                     </div>
+                <div class="col-md-4 summary">
+                    <div><h5><b>Finalisation</b></h5></div>
+                    <hr>
                     <form>
-                        <p>SHIPPING</p>
-                        <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
-                        <p>GIVE CODE</p>
+                        <p>Moyen De Paiement</p>
+                        <select><option class="text-muted">Cash</option>
+                        <option class="text-muted">Moyen electronique
+                        </option>
+                        </select>
+                        <p>Code Promotinel</p>
                         <input id="code" placeholder="Enter your code">
                     </form>
                     <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                        <div class="col">TOTAL PRICE</div>
-                        <div class="col text-right">&euro; 137.00</div>
+                        <div class="col">Prix Total:</div>
+                        <div class="col text-right">{{total}} XOF</div>
                     </div>
                     <button class="btn">CHECKOUT</button>
                 </div>
