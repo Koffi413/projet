@@ -24,10 +24,10 @@ class MaisonsRepository extends ServiceEntityRepository
     /**
      * @return Maisons[] Returns an array of Maisons objects
      */
-    public function findByDisponibilite($value): array
+    public function findBytype($value): array
     {
         return $this->createQueryBuilder('m')
-            ->Where('m.disponibilite = :val')
+            ->Where('m.idMaisons = :val')
             ->setParameter('val', $value)
             ->orderBy('m.id', 'ASC')
             ->setMaxResults(10)
