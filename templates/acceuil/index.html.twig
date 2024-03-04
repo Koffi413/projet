@@ -3,6 +3,9 @@
 {% block title %}Hello AcceuilController!{% endblock %}
 
 {% block body %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="{{ asset('styles/index.css') }}">
 
  <header id="en-tete">
@@ -119,33 +122,41 @@
     </section>
     <section id="article">
         <div class="deuxi">
+            
             <div class="trier-par">
+
+                <div class="col-md-15">
+                    {{ form_start(form) }}
+                    
+                    {{ form_end(form) }}
+                </div>
                 <div class="trie-par">
                     <p>Trier par</p>
                 </div>
+                
                 <div class="categories">
                     <p>Categories:</p>
                     <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> HOTELS
                     </label>
                     <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> MAISON D'HOTES
                     </label>
                     <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> RESIDENCE
                     </label>
                     <label for="Checkbox">
                         <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
                     </label>
                     <p>Standing:</p>
                     <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> HAUT STANDING 
                     </label>
                     <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> MOYEN STANDING
                     </label>
                     <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
+                        <input type="checkbox" id="Checkbox" name="maCheckbox"> BAS STANDING
                     </label>
                     <label for="Checkbox">
                         <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
