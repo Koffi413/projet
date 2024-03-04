@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 class PanierController extends AbstractController
 {
-    #[Route('/panier/{id}', name: 'app_panier')]
-    public function index(SessionInterface $session, MaisonsRepository $maisonsRepository): Response
+    #[Route('/panier', name: 'app_panier')]
+    public function panier(SessionInterface $session, MaisonsRepository $maisonsRepository): Response
     {
         $panier = $session->get('panier',[]);
         $newPanier = [];
@@ -39,7 +39,7 @@ class PanierController extends AbstractController
         ]);
     }
 
-    #[Route('/panier/achat/{id}', name: 'app_achat')]
+    #[Route('/panier/achat/{id}', name: 'panier_achat')]
     public function achat($id, SessionInterface $session)
     {
         $panier = $session->get('panier', []);
@@ -49,7 +49,34 @@ class PanierController extends AbstractController
             $panier[$id] = 1;
         }
         $session->set('panier', $panier);
-
-        dd($session->get('panier'));
+        return $this->redirectToRoute('app_panier');
     }
+
+    #[Route('/panier/delete/{id}', name: 'panier_delete')]
+    public function delete ($id, SessionInterface $session)
+    {
+        $panier = $session->get('panier', []);
+        if(!empty($panier[$id])){
+            unset($panier[$id]);
+        }
+        $session->set('panier', $panier);
+        return $this->redirectToRoute('app_panier');
+    }
+    #[Route('/panier/dimunuer/{id}{quantité}', name: 'panier_dimunuer')]
+    public function dimunuer($id,$quantité, SessionInterface $session)
+    {
+        $panier = $session->get('panier',[]);
+        if($quantité>1){
+            if (!empty($panier[$id])) {
+                $panier[$id]= $panier[$id]-1;
+                }
+            }
+            else{
+                unset($panier[$id]);
+        }
+        
+        $session->set('panier', $panier);
+        return $this->redirectToRoute('app_panier');
+    }
+
 }
