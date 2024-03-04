@@ -29,9 +29,6 @@ class Maisons
     private ?bool $disponibilite = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Categorie = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $image = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -39,6 +36,10 @@ class Maisons
 
     #[ORM\ManyToOne(inversedBy: 'relation')]
     private ?Reservation $reservation = null;
+
+    #[ORM\ManyToOne(inversedBy: 'relation')]
+    private ?Categorie $idMaisons = null;
+
 
     public function getId(): ?int
     {
@@ -104,19 +105,6 @@ class Maisons
 
         return $this;
     }
-
-    public function getCategorie(): ?string
-    {
-        return $this->Categorie;
-    }
-
-    public function setCategorie(string $Categorie): static
-    {
-        $this->Categorie = $Categorie;
-
-        return $this;
-    }
-
     public function getImage(): ?string
     {
         return $this->image;
@@ -149,6 +137,18 @@ class Maisons
     public function setReservation(?Reservation $reservation): static
     {
         $this->reservation = $reservation;
+
+        return $this;
+    }
+
+    public function getIdMaisons(): ?Categorie
+    {
+        return $this->idMaisons;
+    }
+
+    public function setIdMaisons(?Categorie $idMaisons): static
+    {
+        $this->idMaisons = $idMaisons;
 
         return $this;
     }
