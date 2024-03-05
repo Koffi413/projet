@@ -9,11 +9,16 @@ class search {
     */ 
     public $q ='';
     /**
-     *  @var category[]
+     *  @var Categorie[]
      */
     
-    public $category = [];
+    public $categorie = [];
 
+    /**
+     * @var boolean
+     */
+    public $promo = false;
+    
     /**
      * @var null|integer 
      */
@@ -24,8 +29,5 @@ class search {
      */
     public $min;
 
-    /**
-     * @var boolean
-     */
-    public $promo = false;
+    
 }

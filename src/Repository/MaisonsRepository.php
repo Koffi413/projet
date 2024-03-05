@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Maisons;
+use App\search;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -33,6 +34,46 @@ class MaisonsRepository extends ServiceEntityRepository
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
+        ;
+   }
+   public function findSearch(search $search): array
+    {
+        $query = $this
+        ->createQueryBuilder('p')
+        ->select('c', 'p')
+        ->join('p.categorie', 'c');
+
+        if (!empty($search->q)) {
+            $query  = $query
+                ->andWhere('p.name LIKE')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+        if (!empty($search->min)) {
+            $query  = $query
+                ->andWhere('p.prix >= :min')
+                ->setParameter('min', $search->min);
+        }
+
+        if (!empty($search->max)) {
+            $query  = $query
+                ->andWhere('p.prix <= :max')
+                ->setParameter('max', $search->max);
+        }
+
+        if (!empty($search->promo)) {
+            $query  = $query
+                ->andWhere('p.promo = 1');
+        }
+
+        if (!empty($search->categorie)) {
+
+            $query = $query
+                ->andWhere('c.id IN (:categorie)')
+                ->setParameter('categorie', $search->categorie );
+        }
+
+        return $query->getQuery()->getResult();
         ;
    }
 

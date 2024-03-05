@@ -9,17 +9,26 @@ use App\Repository\MaisonsRepository;
 use App\search;
 use App\searchform;
 use Symfony\Component\Form\Extension\Core\Type\TextType; // Importer TextType
+use Symfony\Component\HttpFoundation\Request;
+
 class AcceuilController extends AbstractController
 {
     #[Route('/', name: 'app_acceuil')]
-    public function index(MaisonsRepository $maisonsRepository): Response
+    public function index(MaisonsRepository $maisonsRepository, Request $request): Response
     {   
         $data = new search();
         $form = $this->createForm(searchform::class, $data);
-        $maisons = $maisonsRepository->findAll();
+        $form->handleRequest($request);
+        $maisons = $maisonsRepository->findAll($data);
+
         return $this->render('acceuil/index.html.twig', [
             'maisons' => $maisons,
             'form' => $form->createView()
         ]);
+    }
+    
+    public function search ()
+    {
+
     }
 }

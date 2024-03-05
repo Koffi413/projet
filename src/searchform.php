@@ -1,8 +1,10 @@
 <?php
 namespace App;
 
+use App\Entity\Categorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,14 +22,21 @@ class SearchForm extends AbstractType
                     'placeholder' => 'Rechercher un produit...'
                 ]
             ])
-            ->add('Categorie', EntityType::class, [
+            ->add('categorie', EntityType::class, [
                 'label' => false,
                 'required' => false,
-                'class' => 'App\Entity\Category',
-                'expanded' => true, // Permet d'afficher une liste déroulante ou des cases à cocher
-                'multiple' => true, // Permet de sélectionner plusieurs catégories
+                'class' => Categorie::class,
+                'expanded' => true,
+                'multiple' => true,
             ])
             
+            ->add('promo' , CheckboxType::class, [
+                'label' => 'En promotion',
+                'required' => false,
+                
+                
+            ]) 
+
             ->add('min' , NumberType::class, [
                 'label' => false,
                 'required' => false,
@@ -35,7 +44,18 @@ class SearchForm extends AbstractType
                     'placeholder' => 'Prix min'
                 ]
             ])
-            ;
+
+            ->add('max' , NumberType::class, [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Prix max'
+                ]
+            ])  
+            
+             
+
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -127,27 +127,30 @@
 
                 <div class="col-md-15">
                     {{ form_start(form) }}
+                        {{ form_row(form.q) }} 
+                        <div class="trie-par">
+                            <p>Trier par</p>
+                        </div>
                     
+                        <p>Categories:</p>
+
+                        {{ form_row(form.categorie) }}
+
+                        <p>Prix:</p>
+
+                        {{ form_row(form.min) }}
+                        {{ form_row(form.max) }}
+                    
+                        <p>Promotions:</p>
+
+                        {{ form_row(form.promo) }}
+
+                        <button style="margin-right:100px;" type="submit" class="">Filtrer</button>
+
                     {{ form_end(form) }}
                 </div>
-                <div class="trie-par">
-                    <p>Trier par</p>
-                </div>
-                
                 <div class="categories">
-                    <p>Categories:</p>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> HOTELS
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> MAISON D'HOTES
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> RESIDENCE
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
-                    </label>
+
                     <p>Standing:</p>
                     <label for="Checkbox">
                         <input type="checkbox" id="Checkbox" name="maCheckbox"> HAUT STANDING 
@@ -162,18 +165,7 @@
                         <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
                     </label>
                     <p>prix:</p>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
-                    </label>
+                    
                 </div>
             </div>
             <div class="produits">
