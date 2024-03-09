@@ -126,28 +126,14 @@
             <div class="trier-par">
 
                 <div class="col-md-15">
-                    {{ form_start(form) }}
-                        {{ form_row(form.q) }} 
                         <div class="trie-par">
                             <p>Trier par</p>
                         </div>
                     
                         <p>Categories:</p>
-
-                        {{ form_row(form.categorie) }}
-
-                        <p>Prix:</p>
-
-                        {{ form_row(form.min) }}
-                        {{ form_row(form.max) }}
-                    
+                        <p>Prix:</p>                    
                         <p>Promotions:</p>
-
-                        {{ form_row(form.promo) }}
-
                         <button style="margin-right:100px;" type="submit" class="">Filtrer</button>
-
-                    {{ form_end(form) }}
                 </div>
                 <div class="categories">
 
@@ -179,11 +165,9 @@
                             <p>{{home.prix}} XOF</p>
                         </div>
                         <div class="description">
-                            <p>{{ home.description}}</p><br>
-                            <p>{{ home.IdMaisons.nom}}</p> <br>
-                                <span class="lieu"> {{home.adresse}}<br></span>
-                                <a href="{{home.lien}}"><span class="visite">Faire une
-                                        visite virtuelle<br></span></a>
+                            <p>{{ home.description}}</p>
+                            <span class="lieu"> {{home.adresse}}<br></span>
+                             <a href="{{home.lien}}"><span class="visite">Faire une visite virtuelle<br></span></a>
                         </div>
                         <a href="{{path('panier_achat', {'id': home.id })}}" ><button >Reserver</button></a>
                     </div>

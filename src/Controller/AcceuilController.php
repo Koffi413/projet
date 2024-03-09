@@ -16,19 +16,10 @@ class AcceuilController extends AbstractController
     #[Route('/', name: 'app_acceuil')]
     public function index(MaisonsRepository $maisonsRepository, Request $request): Response
     {   
-        $data = new search();
-        $form = $this->createForm(searchform::class, $data);
-        $form->handleRequest($request);
-        $maisons = $maisonsRepository->findAll($data);
+        $maisons = $maisonsRepository->findAll();
 
         return $this->render('acceuil/index.html.twig', [
             'maisons' => $maisons,
-            'form' => $form->createView()
         ]);
-    }
-    
-    public function search ()
-    {
-
     }
 }
