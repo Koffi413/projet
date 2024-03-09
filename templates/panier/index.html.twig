@@ -5,6 +5,8 @@
 {% block body %}
 <link rel="stylesheet" href="{{ asset('styles/reservation.css') }}">
 
+
+
 <div class="card">
             <div class="row">
             <div class="col-md-8 cart">
@@ -19,20 +21,21 @@
                 {% for item in paniers %}
                         <div class="row border-top border-bottom">
                             <div class="row main align-items-center">
-                                <div class="col-2"><img class="img-fluid" src="{{item.maisons.image}}"></div>
+                                <div class="col-2"><img style="width: 150%;" class="img-fluid" src="{{ item.maisons.image }}"></div>
                                 <div class="col">
-                                    <div class="row text-muted">{{item.maisons.name}}</div>
-                                    <div class="row">{{item.maisons.description}}</div>
+                                    <div class="row text-muted"  style="font-family: Arial, Helvetica, sans-serif;">{{item.maisons.name}}</div>
+                                    <div class="row" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; ">{{item.maisons.description}}</div>
                                 </div>
-                                <div class="col">
+                                <div class="col"  style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; ">
                                     <a href="{{path('panier_dimunuer', {'id': item.maisons.id,'quantité': item.quantité})}}">-</a><a href="#" class="border">{{item.quantité}}</a><a href="{{path('panier_achat', {'id': item.maisons.id })}}">+</a>
                                 </div>
-                                <div class="col"> {{item.maisons.prix * item.quantité}} XOF<a href="{{path('panier_delete', {'id': item.maisons.id })}}" class="btn btn-danger btn-sm">
+                                <div class="col"  style="font-family: Arial, Helvetica, sans-serif; font-size: 17px; "> {{item.maisons.prix * item.quantité}} XOF<a href="{{ path('panier_delete', {'id': item.maisons.id }) }}" class="btn btn-sm" style="background-color: #C11111; border-color: #C11111; color: white;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
                                     </svg>
-                                </a></div>
+                                </a>
+                                </div>
                                 
                             </div>
                         </div>                
@@ -42,9 +45,9 @@
             {% endif %}
 
             
-                        <a href="{{path('app_acceuil')}}" class="btn btn-primary">Retour</a>
+                        <a href="{{path('app_acceuil')}}" class="btn btn-primary" style="background-color: #C11111; border-color: #C11111; color: white; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);" >Retour</a>
                     </div>
-                <div class="col-md-4 summary">
+                <div class="col-md-4 summary" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; background-color:#210A00; color: white;" >
                     <div><h5><b>Finalisation</b></h5></div>
                     <hr>
                     <form>
@@ -53,14 +56,16 @@
                         <option class="text-muted">Moyen electronique
                         </option>
                         </select>
-                        <p>Code Promotinel</p>
-                        <input id="code" placeholder="Enter your code">
+                        <p>Code Promotionnel</p>
+                        <input id="code" placeholder="Entrer votre code">
                     </form>
-                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="row"style="border-top: 1px solid rgba(255,255,255,.9); padding: 2vh 0;">
                         <div class="col">Prix Total:</div>
                         <div class="col text-right">{{total}} XOF</div>
                     </div>
-                    <button class="btn">CHECKOUT</button>
+                    <button class="btn" style="background-color: #C11111; border-color: #C11111; color: white; box-shadow: 2px 3px 2px rgba(225, 225, 225, 0.3);">
+                        <a href="">VERIFICATION</a>
+                    </button>
                 </div>
             </div>
             

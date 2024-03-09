@@ -55,7 +55,7 @@ header {
     background-color: #210A00;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    width: 1280px;
+    width: 1680px;
     height: 550px;
 }
 
@@ -64,7 +64,7 @@ header {
 }
 
 .espace-image img {
-    width: 1100px;
+    width: 1594px;
     height: 600px;
     margin-left: 90px;
 
@@ -107,7 +107,7 @@ header {
 
 .image-can img {
     height: 300px;
-    width: 900px;
+    width: 1200px;
     margin-left: 300px;
 }
 

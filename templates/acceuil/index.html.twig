@@ -126,15 +126,16 @@
             <div class="trier-par">
 
                 <div class="col-md-15">
-                    {{ form_start(form) }}
-                        {{ form_row(form.q) }} 
+                    {{ form_start(form, {attr: {class:'filtre'}}) }}
+                        {{ form_row(form.q) }}
+                    
                         <div class="trie-par">
                             <p>Trier par</p>
                         </div>
                     
                         <p>Categories:</p>
 
-                        {{ form_row(form.categorie) }}
+                        {{ form_row(form.Maisons) }}
 
                         <p>Prix:</p>
 
@@ -149,24 +150,7 @@
 
                     {{ form_end(form) }}
                 </div>
-                <div class="categories">
-
-                    <p>Standing:</p>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> HAUT STANDING 
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> MOYEN STANDING
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> BAS STANDING
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
-                    </label>
-                    <p>prix:</p>
-                    
-                </div>
+                
             </div>
             <div class="produits">
                 <div class="ligne-un">
@@ -179,8 +163,7 @@
                             <p>{{home.prix}} XOF</p>
                         </div>
                         <div class="description">
-                            <p>{{ home.description}}</p><br>
-                            <p>{{ home.IdMaisons.nom}}</p> <br>
+                            <p>{{ home.description}}<br>
                                 <span class="lieu"> {{home.adresse}}<br></span>
                                 <a href="{{home.lien}}"><span class="visite">Faire une
                                         visite virtuelle<br></span></a>

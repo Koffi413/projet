@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Maisons;
-use App\search;
+use App\Entity\Search;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -36,12 +36,12 @@ class MaisonsRepository extends ServiceEntityRepository
             ->getResult()
         ;
    }
-   public function findSearch(search $search): array
+   public function findSearch(Search $search): array
     {
         $query = $this
         ->createQueryBuilder('p')
         ->select('c', 'p')
-        ->join('p.categorie', 'c');
+        ->join('c.idMaisons.nom', 'c');
 
         if (!empty($search->q)) {
             $query  = $query
@@ -66,11 +66,11 @@ class MaisonsRepository extends ServiceEntityRepository
                 ->andWhere('p.promo = 1');
         }
 
-        if (!empty($search->categorie)) {
+        if (!empty($search->Maisons)) {
 
             $query = $query
-                ->andWhere('c.id IN (:categorie)')
-                ->setParameter('categorie', $search->categorie );
+                ->andWhere('c.idMaisons IN (:Categorie)')
+                ->setParameter('Maisons', $search->Maisons );
         }
 
         return $query->getQuery()->getResult();

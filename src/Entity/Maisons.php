@@ -41,6 +41,9 @@ class Maisons
     private ?Categorie $idMaisons = null;
 
 
+
+    
+
     public function getId(): ?int
     {
         return $this->id;

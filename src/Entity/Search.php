@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Entity;
 
-class search {
+class Search {
 
    /**
     *@var string
@@ -12,7 +12,7 @@ class search {
      *  @var Categorie[]
      */
     
-    public $categorie = [];
+    public $Maisons = [];
 
     /**
      * @var boolean

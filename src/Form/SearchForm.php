@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Form;
 
 use App\Entity\Categorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -9,6 +9,9 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType; // Importer TextType
+use  App\Entity\Search;
+use  App\Entity\Maisons;
+
 
 class SearchForm extends AbstractType
 {
@@ -22,10 +25,10 @@ class SearchForm extends AbstractType
                     'placeholder' => 'Rechercher un produit...'
                 ]
             ])
-            ->add('categorie', EntityType::class, [
+            ->add('Maisons', EntityType::class, [
                 'label' => false,
                 'required' => false,
-                'class' => Categorie::class,
+                'class' => Maisons::class,
                 'expanded' => true,
                 'multiple' => true,
             ])
@@ -62,7 +65,7 @@ class SearchForm extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Search::class,
-            'method' => 'GET',
+            'method' => 'POST',
             'csrf_protection' => false
          ]);
     }
