@@ -18,7 +18,7 @@ class Categorie
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\OneToMany(mappedBy: 'idMaisons', targetEntity: maisons::class)]
+    #[ORM\OneToMany(mappedBy: 'idMaisons', targetEntity: Maisons::class)]
     private Collection $relation;
 
     public function __construct()
@@ -44,7 +44,7 @@ class Categorie
     }
 
     /**
-     * @return Collection<int, maisons>
+     * @return Collection<int, Maisons>
      */
     public function getRelation(): Collection
     {

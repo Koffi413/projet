@@ -126,33 +126,26 @@
             <div class="trier-par">
 
                 <div class="col-md-15">
+                    {{ form_start(form, {attr: {class:'filtre'}}) }}
+                        {{ form_row(form.q) }}
+                    
                         <div class="trie-par">
                             <p>Trier par</p>
                         </div>
                     
                         <p>Categories:</p>
-                        <p>Prix:</p>                    
+
+                        {{ form_row(form.Maisons) }}
+
+                        <p>Prix:</p>
+
+                        {{ form_row(form.min) }}
+                        {{ form_row(form.max) }}
+                    
                         <p>Promotions:</p>
                         <button style="margin-right:100px;" type="submit" class="">Filtrer</button>
                 </div>
-                <div class="categories">
-
-                    <p>Standing:</p>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> HAUT STANDING 
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> MOYEN STANDING
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> BAS STANDING
-                    </label>
-                    <label for="Checkbox">
-                        <input type="checkbox" id="Checkbox" name="maCheckbox"> Checkbox
-                    </label>
-                    <p>prix:</p>
-                    
-                </div>
+                
             </div>
             <div class="produits">
                 <div class="ligne-un">
@@ -165,9 +158,10 @@
                             <p>{{home.prix}} XOF</p>
                         </div>
                         <div class="description">
-                            <p>{{ home.description}}</p>
-                            <span class="lieu"> {{home.adresse}}<br></span>
-                             <a href="{{home.lien}}"><span class="visite">Faire une visite virtuelle<br></span></a>
+                            <p>{{ home.description}}<br>
+                                <span class="lieu"> {{home.adresse}}<br></span>
+                                <a href="{{home.lien}}"><span class="visite">Faire une
+                                        visite virtuelle<br></span></a>
                         </div>
                         <a href="{{path('panier_achat', {'id': home.id })}}" ><button >Reserver</button></a>
                     </div>
