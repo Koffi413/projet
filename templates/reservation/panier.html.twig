@@ -3,7 +3,9 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-<div class="bg-light p-3">
+<link rel="stylesheet" href="{{ asset('styles/panier.css') }}">
+
+<div class="bg-light p-3" style="border: 1px solid #210A00;">
     <h1>Vos Reservations</h1>
 </div>
 {% if panier|length > 0 %}
@@ -37,6 +39,15 @@
     </tbody>
 </table>
 {% else %}
- <p>Vous avez aucune reservations pour l'instant</p>
+<div class="imprimer" style="border: 2px solid #210A00; position: fixed;  width: 100px; right: 30px; top:125px; display: flex; justify-content: center; align-items: center;">
+    <p style="color:#210A00; margin: 5px;">Imprimer</p>
+</div>
+<div class="aucunereservation" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 75vh;">
+    <p style="font-size: 20px;">Vous n'avez aucune réservation pour l'instant</p>
+    <a href="#">Voir toutes les réservations</a>
+</div>
+
+
+
  {% endif %}
 {% endblock %}
