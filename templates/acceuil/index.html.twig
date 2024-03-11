@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello AcceuilController!{% endblock %}
-
-{% block body %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="{{ asset('styles/index.css') }}">
-
+</head>
+<body>
  <header id="en-tete">
         <div class="barre-de-navigation">
             <div class="logo">
@@ -39,7 +38,7 @@
                 </a>
             </ul>
             <div class="fin-navigation">
-                <p> Se Connecter</p>
+                <p><a href="{{path('app_login')}}"> Se Connecter</a></p>
 
             </div>
         </div>
@@ -126,24 +125,9 @@
             <div class="trier-par">
 
                 <div class="col-md-15">
-                    {{ form_start(form, {attr: {class:'filtre'}}) }}
-                        {{ form_row(form.q) }}
-                    
-                        <div class="trie-par">
-                            <p>Trier par</p>
-                        </div>
-                    
-                        <p>Categories:</p>
-
-                        {{ form_row(form.Maisons) }}
-
-                        <p>Prix:</p>
-
-                        {{ form_row(form.min) }}
-                        {{ form_row(form.max) }}
-                    
-                        <p>Promotions:</p>
-                        <button style="margin-right:100px;" type="submit" class="">Filtrer</button>
+                {{ form_start(form) }}
+                <a href="{{ path('app_acceuil')}}" class="list-group-item list-group-item-action">A second link item</a>
+                {{ form_end(form) }}
                 </div>
                 
             </div>
@@ -209,7 +193,7 @@
     </section>
     <section id="autre-section">
         <div class="produits">
-                <div class="ligne-deux">
+            <div class="ligne-deux">
                 {% for home in maisons %}
                     <div class="produit">
                         <div class="image-produit">
@@ -219,16 +203,16 @@
                             <p>{{home.prix}} XOF</p>
                         </div>
                         <div class="description">
-                            <p>{{ home.description}}</p>
+                            <p>{{ home.description}}<br>
                                 <span class="lieu"> {{home.adresse}}<br></span>
-                                <a href="{{home.lien}}"><span class="visite">Faire une visite virtuelle<br></span></a>
+                                <a href="{{home.lien}}"><span class="visite">Faire une
+                                        visite virtuelle<br></span></a>
                         </div>
                         <a href="{{path('panier_achat', {'id': home.id })}}" ><button >Reserver</button></a>
                     </div>
                     {% endfor %}
-                </div>
-                
+            </div>
         </div>
     </section>
-
-{% endblock %}
+</body>
+</html>

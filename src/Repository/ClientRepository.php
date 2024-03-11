@@ -24,17 +24,27 @@ class ClientRepository extends ServiceEntityRepository
 //    /**
 //     * @return Client[] Returns an array of Client objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+  public function findByClient(Client $client): array
+    {
+        $queryBuilder = $this->createQueryBuilder('m');
+
+       // Si une catégorie est sélectionnée, filtrez par catégorie
+       if ($client->getEmail()) {
+           $queryBuilder
+               ->andWhere('m.email = :email')
+               ->setParameter('email', $client->getEmail());
+       }
+
+       // Si des valeurs min et max sont définies, filtrez par prix
+       if ($client->getPassword()) {
+           $queryBuilder
+               ->andWhere('m.Password = :password')
+               ->setParameter('password', $client->getPassword());
+       }
+
+       // Exécutez la requête et retournez les résultats
+       return $queryBuilder->getQuery()->getResult();
+    }
 
 //    public function findOneBySomeField($value): ?Client
 //    {

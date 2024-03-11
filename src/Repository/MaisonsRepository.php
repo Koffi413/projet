@@ -25,7 +25,7 @@ class MaisonsRepository extends ServiceEntityRepository
     /**
      * @return Maisons[] Returns an array of Maisons objects
      */
-    public function findBytype($value): array
+    public function findByCategorie($value): array
     {
         return $this->createQueryBuilder('m')
             ->Where('m.idMaisons = :val')
@@ -36,46 +36,57 @@ class MaisonsRepository extends ServiceEntityRepository
             ->getResult()
         ;
    }
-   public function findSearch(Search $search): array
+   public function findByMax($value): array
     {
-        $query = $this
-        ->createQueryBuilder('p')
-        ->select('c', 'p')
-        ->join('c.idMaisons.nom', 'c');
-
-        if (!empty($search->q)) {
-            $query  = $query
-                ->andWhere('p.name LIKE')
-                ->setParameter('q', "%{$search->q}%");
-        }
-
-        if (!empty($search->min)) {
-            $query  = $query
-                ->andWhere('p.prix >= :min')
-                ->setParameter('min', $search->min);
-        }
-
-        if (!empty($search->max)) {
-            $query  = $query
-                ->andWhere('p.prix <= :max')
-                ->setParameter('max', $search->max);
-        }
-
-        if (!empty($search->promo)) {
-            $query  = $query
-                ->andWhere('p.promo = 1');
-        }
-
-        if (!empty($search->Maisons)) {
-
-            $query = $query
-                ->andWhere('c.idMaisons IN (:Categorie)')
-                ->setParameter('Maisons', $search->Maisons );
-        }
-
-        return $query->getQuery()->getResult();
+        return $this->createQueryBuilder('m')
+            ->Where('m.prix <= :val')
+            ->setParameter('val', $value)
+            ->orderBy('m.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
         ;
    }
+   public function findByMin($value): array
+    {
+        return $this->createQueryBuilder('m')
+            ->Where('m.prix >= :val')
+            ->setParameter('val', $value)
+            ->orderBy('m.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+   }
+   
+   public function findBySearch(Search $search)
+   {
+       $queryBuilder = $this->createQueryBuilder('m');
+
+       // Si une catégorie est sélectionnée, filtrez par catégorie
+       if ($search->getCategorie()) {
+           $queryBuilder
+               ->andWhere('m.idMaisons = :categorie')
+               ->setParameter('categorie', $search->getCategorie());
+       }
+
+       // Si des valeurs min et max sont définies, filtrez par prix
+       if ($search->getMin()) {
+           $queryBuilder
+               ->andWhere('m.prix >= :min')
+               ->setParameter('min', $search->getMin());
+       }
+
+       if ($search->getMax()) {
+           $queryBuilder
+               ->andWhere('m.prix <= :max')
+               ->setParameter('max', $search->getMax());
+       }
+
+       // Exécutez la requête et retournez les résultats
+       return $queryBuilder->getQuery()->getResult();
+   }
+
 
 //    public function findOneBySomeField($value): ?Maisons
 //    {
