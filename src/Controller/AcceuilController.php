@@ -8,8 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\MaisonsRepository;
 use App\Entity\Search;
-use App\Form\SearchForm;
-use Symfony\Component\Form\Extension\Core\Type\TextType; // Importer TextType
+use App\Form\SearchForm; // Importer TextType
 use Symfony\Component\HttpFoundation\Request;
 
 class AcceuilController extends AbstractController
@@ -25,6 +24,5 @@ class AcceuilController extends AbstractController
         
         return $this->render('acceuil/index.html.twig', [
             'maisons' => $maisons,
-            'form' => $form->createView()
         ]);
     }}

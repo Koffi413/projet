@@ -143,12 +143,7 @@
                         {{ form_row(form.max) }}
                     
                         <p>Promotions:</p>
-
-                        {{ form_row(form.promo) }}
-
                         <button style="margin-right:100px;" type="submit" class="">Filtrer</button>
-
-                    {{ form_end(form) }}
                 </div>
                 
             </div>
@@ -214,78 +209,26 @@
     </section>
     <section id="autre-section">
         <div class="produits">
-            <div class="ligne-deux">
-                <div class="produit">
-                    <div class="image-produit">
-                        <img src="{{ asset('images/produit1.jpeg') }}">
+                <div class="ligne-deux">
+                {% for home in maisons %}
+                    <div class="produit">
+                        <div class="image-produit">
+                            <img src="{{home.image}}"/>
+                        </div>
+                        <div class="information-prix">
+                            <p>{{home.prix}} XOF</p>
+                        </div>
+                        <div class="description">
+                            <p>{{ home.description}}</p>
+                                <span class="lieu"> {{home.adresse}}<br></span>
+                                <a href="{{home.lien}}"><span class="visite">Faire une visite virtuelle<br></span></a>
+                        </div>
+                        <a href="{{path('panier_achat', {'id': home.id })}}" ><button >Reserver</button></a>
                     </div>
-                    <div class="information-prix">
-                        <p>175000 XOF</p>
-                    </div>
-                    <div class="description">
-                        <p>Résidence 2 pièces + piscine <br>
-                            <span class="lieu"> Riviera , Abatta<br></span>
-                            <a href="https://my.matterport.com/show/?m=cQkzgNR8osW"><span class="visite">Faire une
-                                    visite virtuelle<br></span></a>
-                    </div>
-                    <button>Reserver</button>
+                    {% endfor %}
                 </div>
-                <div class="produit">
-                    <div class="image-produit">
-                        <img src="{{ asset('images/produit2.jpeg') }}">
-                    </div>
-                    <div class="information-prix">
-                        <p>175000 XOF</p>
-                    </div>
-                    <div class="description">
-                        <p>Résidence 2 pièces + piscine <br>
-                            <span class="lieu"> Riviera , Abatta<br></span>
-                            <span class="visite">Faire une visite virtuelle<br></span>
-                    </div>
-                    <button>Reserver</button>
-                </div>
-                <div class="produit">
-                    <div class="image-produit">
-                        <img src="{{ asset('images/produit3.jpeg') }}">
-                    </div>
-                    <div class="information-prix">
-                        <p>175000 XOF</p>
-                    </div>
-                    <div class="description">
-                        <p>Résidence 2 pièces + piscine <br>
-                            <span class="lieu"> Riviera , Abatta<br></span>
-                            <span class="visite">Faire une visite virtuelle<br></span>
-                    </div>
-                    <button>Reserver</button>
-                </div>
-                <div class="produit">
-                    <div class="image-produit">
-                        <img src="{{ asset('images/produit4.jpeg') }}">
-                    </div>
-                    <div class="information-prix">
-                        <p>175000 XOF</p>
-                    </div>
-                    <div class="description">
-                        <p>Résidence 2 pièces + piscine <br>
-                            <span class="lieu"> Riviera , Abatta<br></span>
-                            <span class="visite">Faire une visite virtuelle<br></span>
-                    </div>
-                    <button>Reserver</button>
-                </div>
-                <div class="produit">
-                    <div class="image-produit">
-                        <img src="{{ asset('images/produit4.jpeg') }}">
-                    </div>
-                    <div class="information-prix">
-                        <p>175000 XOF</p>
-                    </div>
-                    <div class="description">
-                        <p>Résidence 2 pièces + piscine <br>
-                            <span class="lieu"> Riviera , Abatta<br></span>
-                            <span class="visite">Faire une visite virtuelle<br></span>
-                    </div>
-                    <button>Reserver</button>
-                </div>
+                
+        </div>
     </section>
 
 {% endblock %}
