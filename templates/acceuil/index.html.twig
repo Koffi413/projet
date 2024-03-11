@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello AcceuilController!{% endblock %}
-
-{% block body %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="{{ asset('styles/index.css') }}">
-
+</head>
+<body>
  <header id="en-tete">
         <div class="barre-de-navigation">
             <div class="logo">
@@ -194,7 +193,7 @@
     </section>
     <section id="autre-section">
         <div class="produits">
-                <div class="ligne-deux">
+            <div class="ligne-deux">
                 {% for home in maisons %}
                     <div class="produit">
                         <div class="image-produit">
@@ -204,16 +203,16 @@
                             <p>{{home.prix}} XOF</p>
                         </div>
                         <div class="description">
-                            <p>{{ home.description}}</p>
+                            <p>{{ home.description}}<br>
                                 <span class="lieu"> {{home.adresse}}<br></span>
-                                <a href="{{home.lien}}"><span class="visite">Faire une visite virtuelle<br></span></a>
+                                <a href="{{home.lien}}"><span class="visite">Faire une
+                                        visite virtuelle<br></span></a>
                         </div>
                         <a href="{{path('panier_achat', {'id': home.id })}}" ><button >Reserver</button></a>
                     </div>
                     {% endfor %}
-                </div>
-                
+            </div>
         </div>
     </section>
-
-{% endblock %}
+</body>
+</html>

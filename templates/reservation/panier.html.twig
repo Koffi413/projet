@@ -1,10 +1,8 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}{% endblock %}
-
-{% block body %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
 <link rel="stylesheet" href="{{ asset('styles/panier.css') }}">
-
+</head>
 <div class="bg-light p-3" style="border: 1px solid #210A00;">
     <h1>Vos Reservations</h1>
 </div>
@@ -44,10 +42,10 @@
 </div>
 <div class="aucunereservation" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 75vh;">
     <p style="font-size: 20px;">Vous n'avez aucune réservation pour l'instant</p>
-    <a href="#">Voir toutes les réservations</a>
+    <a href="{{ path('app_home')}}">Voir toutes les réservations</a>
 </div>
 
-
+</div>
 
  {% endif %}
-{% endblock %}
+</html>

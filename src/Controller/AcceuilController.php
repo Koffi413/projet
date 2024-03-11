@@ -36,4 +36,10 @@ class AcceuilController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    #[Route( name: 'app_home')]
+    public function home() 
+    {
+        return $this->redirectToRoute('app_acceuil');
+    }
+
 }
