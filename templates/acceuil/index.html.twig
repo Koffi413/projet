@@ -39,7 +39,7 @@
                 </a>
             </ul>
             <div class="fin-navigation">
-                <p> Se Connecter</p>
+                <p><a href="{{path('app_login')}}"> Se Connecter</a></p>
 
             </div>
         </div>
@@ -126,24 +126,9 @@
             <div class="trier-par">
 
                 <div class="col-md-15">
-                    {{ form_start(form, {attr: {class:'filtre'}}) }}
-                        {{ form_row(form.q) }}
-                    
-                        <div class="trie-par">
-                            <p>Trier par</p>
-                        </div>
-                    
-                        <p>Categories:</p>
-
-                        {{ form_row(form.Maisons) }}
-
-                        <p>Prix:</p>
-
-                        {{ form_row(form.min) }}
-                        {{ form_row(form.max) }}
-                    
-                        <p>Promotions:</p>
-                        <button style="margin-right:100px;" type="submit" class="">Filtrer</button>
+                {{ form_start(form) }}
+                <a href="{{ path('app_acceuil')}}" class="list-group-item list-group-item-action">A second link item</a>
+                {{ form_end(form) }}
                 </div>
                 
             </div>

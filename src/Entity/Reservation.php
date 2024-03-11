@@ -25,6 +25,9 @@ class Reservation
     #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: Maisons::class)]
     private Collection $relation;
 
+    #[ORM\ManyToOne(inversedBy: 'relation')]
+    private ?Client $client = null;
+
     public function __construct()
     {
         $this->relation = new ArrayCollection();
@@ -85,6 +88,18 @@ class Reservation
                 $relation->setReservation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): static
+    {
+        $this->client = $client;
 
         return $this;
     }
