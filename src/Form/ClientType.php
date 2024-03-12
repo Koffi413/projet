@@ -34,4 +34,8 @@ class ClientType extends AbstractType
             'method' => 'POST'
         ]);
     }
+    public function getBlockPrefix()
+    {
+        return '';
+    }
 }

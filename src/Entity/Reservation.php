@@ -28,6 +28,9 @@ class Reservation
     #[ORM\ManyToOne(inversedBy: 'relation')]
     private ?Client $client = null;
 
+    #[ORM\ManyToOne(inversedBy: 'relation')]
+    private ?User $user_reservation = null;
+
     public function __construct()
     {
         $this->relation = new ArrayCollection();
@@ -103,4 +106,17 @@ class Reservation
 
         return $this;
     }
+
+    public function getUserReservation(): ?User
+    {
+        return $this->user_reservation;
+    }
+
+    public function setUserReservation(?User $user_reservation): static
+    {
+        $this->user_reservation = $user_reservation;
+
+        return $this;
+    }
+
 }
