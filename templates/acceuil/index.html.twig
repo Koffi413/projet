@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -37,10 +38,21 @@
                     <li>Contact</li>
                 </a>
             </ul>
-            <div class="fin-navigation">
-                <p><a href="{{path('app_login')}}"> Se Connecter</a></p>
 
+             {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}
+                </div>
+                <div class="fin-navigation">
+                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                </div>
+            {% else %}
+            <div class="fin-navigation">
+                <p><a href="{{ path('app_login') }}">Se Connecter</a></p>
+                <p><a href="{{path('app_register')}}"> S'inscrire</a></p>
             </div>
+            {% endif %}
+            
         </div>
         <div class="text1">
             <div class="para">
@@ -126,7 +138,6 @@
 
                 <div class="col-md-15">
                 {{ form_start(form) }}
-                <a href="{{path('app_home')}}">Renitialiser</a>
                 {{ form_end(form) }}
                 </div>
                 
@@ -193,7 +204,7 @@
     </section>
     <section id="autre-section">
         <div class="produits">
-            <div class="ligne-deux">
+            <div class="ligne-un">
                 {% for home in maisons %}
                     <div class="produit">
                         <div class="image-produit">

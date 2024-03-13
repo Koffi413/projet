@@ -18,7 +18,7 @@ class LoginController extends AbstractController
    private $form;
    private $error;
 
-    #[Route('/login', name: 'app_login')]
+    #[Route('/connecter', name: 'app_connecter')]
     public function index(AuthenticationUtils $authenticationUtils,ClientRepository $clientRepository, Request $request, SessionInterface $sessionUser): Response
     {
 

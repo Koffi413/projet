@@ -1,5 +1,12 @@
-<form action="{{ path('app_acceuil') }}" method="post">
-    
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+{% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+ {% endif %}
+<form method="post" action="{{ path('app_acceuil') }}">
 
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail">Email</label>
@@ -15,3 +22,4 @@
         Sign in
     </button>
 </form>
+{% endblock %}
